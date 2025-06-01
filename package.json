@@ -11,7 +11,9 @@
   "keywords": [],
   "author": "5quirre1",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "vite": "^2.0.0"
+  },
   "devDependencies": {
     "vite": "^2.0.0"
   }
