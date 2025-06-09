@@ -87,7 +87,6 @@
                     <li><a href="#" id="nav-profile"><i class="fas fa-user"></i> Profile</a></li>
                     <li><a href="#" id="nav-tagged"><i class="fas fa-at"></i> Tagged</a></li>
                     <li><a href="#" id="nav-settings"><i class="fas fa-cog"></i> Settings</a></li>
-                    <li><a href="#" id="nav-logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </div>
 
@@ -131,23 +130,27 @@
                                 <i class="fas fa-camera"></i>
                             </div>
                         </div>
+
                         <div class="user-info">
-                            <h2 id="profile-display-name">Display Name</h2>
-                            <div id="profile-username" class="text-secondary">@username</div>
-                            <div id="profile-join-date" class="text-secondary join-date"></div>
+                            <h1 id="profile-display-name">greg <span id="profile-username"
+                                    class="text-secondary">(@wow)</span></h1>
+                            <div id="profile-join-date" class="text-secondary join-date">7979679799797
+                            </div>
                         </div>
-                        <div id="profile-bio" class="profile-bio text-secondary"></div>
+                        <div id="profile-bio" class="profile-bio text-secondary">
+                            e
+                        </div>
                         <div class="user-stats">
                             <div class="stat">
-                                <div id="profile-posts-count" class="stat-value">0</div>
+                                <div id="profile-posts-count" class="stat-value">68</div>
                                 <div class="stat-label">Posts</div>
                             </div>
                             <div class="stat">
-                                <div id="profile-followers-count" class="stat-value">0</div>
+                                <div id="profile-followers-count" class="stat-value">69</div>
                                 <div class="stat-label">Followers</div>
                             </div>
                             <div class="stat">
-                                <div id="profile-following-count" class="stat-value">0</div>
+                                <div id="profile-following-count" class="stat-value">444</div>
                                 <div class="stat-label">Following</div>
                             </div>
                         </div>
@@ -174,7 +177,7 @@
                             <div class="loading-spinner"></div>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div id="tagged-page" class="page hidden">
@@ -210,6 +213,41 @@
                             <button type="submit" class="btn btn-primary">Save Changes</button>
                         </form>
                     </div>
+                    <div class="post">
+                        <h3>Profile Customization</h3>
+                        <form id="profile-customization-form">
+                            <div class="form-group">
+                                <label for="profile-bg-url" class="form-label">Profile Background Image URL</label>
+                                <input type="text" id="profile-bg-url" class="form-input"
+                                    placeholder="Enter background image URL">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-bg-color" class="form-label">Profile Background Color</label>
+                                <input type="color" id="profile-bg-color" class="form-input" value="#1e1e2e">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-pic-shape" class="form-label">Profile Picture Shape</label>
+                                <select id="profile-pic-shape" class="form-input">
+                                    <option value="circle">Circle</option>
+                                    <option value="rounded">Rounded Square</option>
+                                    <option value="square">Square</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="username-color" class="form-label">Username Color</label>
+                                <input type="color" id="username-color" class="form-input" value="#ffffff">
+                            </div>
+                            <div class="form-group">
+                                <label for="displayname-color" class="form-label">Display Name Color</label>
+                                <input type="color" id="displayname-color" class="form-input" value="#ffffff">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Customization</button>
+                        </form>
+                    </div>
+                    <hr style="margin:2rem 0 1rem 0; border: none; border-top: 1px solid var(--bg-tertiary);" />
+                    <button id="settings-logout-btn" class="btn btn-danger" style="width:100%;margin-top:1rem;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
                 </div>
 
                 <div id="user-profile-page" class="page hidden">
@@ -288,70 +326,71 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div id="toast-container" class="toast-container"></div>
+        <div id="toast-container" class="toast-container"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.17.2/firebase-app-compat.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.17.2/firebase-auth-compat.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.17.2/firebase-database-compat.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.17.2/firebase-app-compat.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.17.2/firebase-auth-compat.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.17.2/firebase-database-compat.min.js"></script>
 
-    <div id="media-overlay" class="media-overlay hidden">
-        <div class="media-overlay-backdrop"></div>
-        <div class="media-overlay-content">
-            <button id="media-overlay-close" class="media-overlay-close" title="Close">&times;</button>
-            <div class="media-zoom-controls">
-                <button id="media-zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
-                <button id="media-zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
-                <button id="media-zoom-reset" title="Reset Zoom"><i class="fas fa-undo"></i></button>
-            </div>
-            <div id="media-overlay-inner" class="media-overlay-inner"></div>
-        </div>
-    </div>
-
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                <span class="footer-logo">
-                    <i class="fas fa-book"></i>
-                    ZILO
-                </span>
-                <span class="footer-divider" aria-hidden="true"></span>
-                <span class="footer-copyright">
-                    &copy; <span id="footer-year"></span> ZILO. Licensed under <a
-                        href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a>.
-                </span>
-            </div>
-            <div class="footer-center">
-                <span class="footer-quote">“youve been coding for 13 hours” - nomaakip</span>
-            </div>
-            <div class="footer-links">
-                <a href="https://github.com/5quirre1/ZILO/" id="footer-github-link"
-                    target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                    GitHub
-                </a>
-                <a href="mailto:squirrelhomebrew@gmail.com" aria-label="Contact">
-                    <i class="fas fa-envelope"></i> Email <!--feverfew-->
-                </a>
-                <a href="https://raw.githubusercontent.com/5quirre1/ZILO/refs/heads/main/src/tos.txt" id="footer-tos-link" aria-label="Terms of Service">
-                    <i class="fas fa-file-contract"></i> TOS
-                </a>
+        <div id="media-overlay" class="media-overlay hidden">
+            <div class="media-overlay-backdrop"></div>
+            <div class="media-overlay-content">
+                <button id="media-overlay-close" class="media-overlay-close" title="Close">&times;</button>
+                <div class="media-zoom-controls">
+                    <button id="media-zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+                    <button id="media-zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+                    <button id="media-zoom-reset" title="Reset Zoom"><i class="fas fa-undo"></i></button>
+                </div>
+                <div id="media-overlay-inner" class="media-overlay-inner"></div>
             </div>
         </div>
-    </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var year = new Date().getFullYear();
-            var footerYear = document.getElementById("footer-year");
-            if (footerYear) {
-                footerYear.textContent = year;
-            }
-        });
-    </script>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-logo">
+                        <i class="fas fa-book"></i>
+                        ZILO
+                    </span>
+                    <span class="footer-divider" aria-hidden="true"></span>
+                    <span class="footer-copyright">
+                        &copy; <span id="footer-year"></span> ZILO. Licensed under <a
+                            href="https://opensource.org/licenses/MIT" target="_blank"
+                            rel="noopener noreferrer">MIT</a>.
+                    </span>
+                </div>
+                <div class="footer-center">
+                    <span class="footer-quote">“youve been coding for 13 hours” - nomaakip</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/5quirre1/ZILO/" id="footer-github-link" target="_blank" rel="noopener"
+                        aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="mailto:squirrelhomebrew@gmail.com" aria-label="Contact">
+                        <i class="fas fa-envelope"></i> Email <!--feverfew-->
+                    </a>
+                    <a href="https://raw.githubusercontent.com/5quirre1/ZILO/refs/heads/main/src/tos.txt"
+                        id="footer-tos-link" aria-label="Terms of Service">
+                        <i class="fas fa-file-contract"></i> TOS
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var year = new Date().getFullYear();
+                var footerYear = document.getElementById("footer-year");
+                if (footerYear) {
+                    footerYear.textContent = year;
+                }
+            });
+        </script>
 </body>
 
 </html>
