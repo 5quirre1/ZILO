@@ -12,8 +12,5 @@
   "author": "5quirre1",
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {
-    "vite": "^5.0.0",
-    "vite-plugin-static-copy": "^0.15.0"
-  }
+  "devDependencies": {}
 }
