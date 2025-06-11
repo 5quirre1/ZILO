@@ -1,6 +1,6 @@
 {
   "name": "zilo",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a microbloging website",
   "scripts": {
     "dev": "vite",
@@ -12,5 +12,8 @@
   "author": "5quirre1",
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-static-copy": "^0.15.0"
+  }
 }
