@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="module" crossorigin src="/assets/index-DaooSu3n.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Di_psyPF.css">
+    <meta name="title" content="ZILO">
+    <meta name="description" content="Zilo is a small microblogging website that's pretty cool!!11">
 </head>
 
 <body>
+    <div id="mobile-warning">
+        <p><i class="fas fa-exclamation-triangle"></i> this website works best on desktop/laptop.. mobile experience sucks,,</p>
+        <button id="close-mobile-warning">aw shucks</button>
+    </div>
+
     <div id="loading-screen">
         <div class="loading-content">
             <div class="loading-spinner"></div>
@@ -94,6 +101,12 @@
             <div class="main-content">
                 <div id="home-page" class="page">
                     <div class="post-composer">
+                        <div id="new-user-limit-alert" class="hidden">
+                            <div class="limit-alert">
+                                <span id="posts-remaining">20</span> posts and <span id="comments-remaining">20</span>
+                                comments remaining today
+                            </div>
+                        </div>
                         <textarea id="post-input" class="post-input" maxlength="512"
                             placeholder="What's happening?"></textarea>
                         <div class="post-actions">
@@ -152,6 +165,10 @@
                             <div class="stat">
                                 <div id="profile-following-count" class="stat-value">444</div>
                                 <div class="stat-label">Following</div>
+                            </div>
+                            <div class="stat" id="badges-stat">
+                                <div id="profile-badges-count" class="stat-value">0</div>
+                                <div class="stat-label">Badges</div>
                             </div>
                         </div>
                     </div>
@@ -232,8 +249,8 @@
                                     <option value="rounded">Rounded Square</option>
                                     <option value="square">Square</option>
                                 </select>
-                            
-                               
+
+
                             </div>
                             <button type="submit" class="btn btn-primary">Save Customization</button>
                         </form>
@@ -258,19 +275,25 @@
                         <div id="user-profile-bio" class="profile-bio text-secondary">no bio..</div>
                         <div class="user-stats">
                             <div class="stat">
-                                <div id="user-profile-posts-count" class="stat-value">0</div>
+                                <div id="user-profile-posts-count" class="stat-value">68</div>
                                 <div class="stat-label">Posts</div>
                             </div>
                             <div class="stat">
-                                <div id="user-profile-followers-count" class="stat-value">0</div>
+                                <div id="user-profile-followers-count" class="stat-value">69</div>
                                 <div class="stat-label">Followers</div>
                             </div>
                             <div class="stat">
-                                <div id="user-profile-following-count" class="stat-value">0</div>
+                                <div id="user-profile-following-count" class="stat-value">444</div>
                                 <div class="stat-label">Following</div>
                             </div>
+                            <div class="stat" id="badges-stat">
+                                <div id="user-profile-badges-count" class="stat-value">0</div>
+                                <div class="stat-label">Badges</div>
+                            </div>
                         </div>
-                        <button id="follow-user-btn" class="follow-btn">Follow</button>
+                        <div class="follow-btn-container">
+                            <button id="follow-user-btn" class="follow-btn">Follow</button>
+                        </div>
                     </div>
 
                     <div class="tabs">
@@ -341,6 +364,17 @@
             </div>
         </div>
 
+        <div id="badges-modal" class="modal hidden">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Badges</h3>
+                    <button class="modal-close">×</button>
+                </div>
+                <div class="modal-body" id="badges-container">
+                </div>
+            </div>
+        </div>
 
         <footer class="site-footer">
             <div class="footer-content">
@@ -357,7 +391,7 @@
                     </span>
                 </div>
                 <div class="footer-center">
-                    <span class="footer-quote">“youve been coding for 13 hours” - nomaakip</span>
+                    <span class="footer-quote">“can you add gay badge” - hypercube</span>
                 </div>
                 <div class="footer-links">
                     <a href="https://github.com/5quirre1/ZILO/" id="footer-github-link" target="_blank" rel="noopener"
