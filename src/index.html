@@ -14,7 +14,8 @@
 
 <body>
     <div id="mobile-warning">
-        <p><i class="fas fa-exclamation-triangle"></i> this website works best on desktop/laptop.. mobile experience sucks,,</p>
+        <p><i class="fas fa-exclamation-triangle"></i> this website works best on desktop/laptop.. mobile experience
+            sucks,,</p>
         <button id="close-mobile-warning">aw shucks</button>
     </div>
 
@@ -208,57 +209,75 @@
                 </div>
 
                 <div id="settings-page" class="page hidden">
-                    <h2>Settings</h2>
-                    <div class="post">
-                        <h3>Edit Profile</h3>
-                        <form id="edit-profile-form">
-                            <div class="form-group">
-                                <label for="edit-display-name" class="form-label">Display Name</label>
-                                <input type="text" id="edit-display-name" class="form-input"
-                                    placeholder="Enter your display name" maxlength="20">
+                    <div class="settings-container">
+                        <div class="settings-section">
+                            <h2><i class="fas fa-user-cog"></i> Profile Settings</h2>
+                            <div class="settings-card">
+                                <form id="edit-profile-form">
+                                    <div class="form-group">
+                                        <label for="edit-display-name" class="form-label">Display Name</label>
+                                        <input type="text" id="edit-display-name" class="form-input"
+                                            placeholder="Enter your display name" maxlength="20">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-bio" class="form-label">Bio</label>
+                                        <textarea id="edit-bio" class="form-input" rows="3" maxlength="160"
+                                            placeholder="Write something about yourself (max 160 characters)"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-profile-pic" class="form-label">Profile Picture URL</label>
+                                        <div class="input-with-button">
+                                            <input type="text" id="edit-profile-pic" class="form-input"
+                                                placeholder="Enter profile picture URL">
+                                            <button type="button" id="change-profile-pic-btn" class="btn btn-secondary">
+                                                <i class="fas fa-camera"></i> Change
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="edit-bio" class="form-label">Bio</label>
-                                <textarea id="edit-bio" class="form-input" rows="3" maxlength="160"
-                                    placeholder="Write something about yourself (max 160 characters)"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit-profile-pic" class="form-label">Profile Picture URL</label>
-                                <input type="text" id="edit-profile-pic" class="form-input"
-                                    placeholder="Enter profile picture URL">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                        </form>
-                    </div>
-                    <div class="post">
-                        <h3>Profile Customization</h3>
-                        <form id="profile-customization-form">
-                            <div class="form-group">
-                                <label for="profile-bg-url" class="form-label">Profile Background Image URL</label>
-                                <input type="text" id="profile-bg-url" class="form-input"
-                                    placeholder="Enter background image URL">
-                            </div>
-                            <div class="form-group">
-                                <label for="profile-bg-color" class="form-label">Profile Background Color</label>
-                                <input type="color" id="profile-bg-color" class="form-input" value="#1e1e2e">
-                            </div>
-                            <div class="form-group">
-                                <label for="profile-pic-shape" class="form-label">Profile Picture Shape</label>
-                                <select id="profile-pic-shape" class="form-input">
-                                    <option value="circle">Circle</option>
-                                    <option value="rounded">Rounded Square</option>
-                                    <option value="square">Square</option>
-                                </select>
+                        </div>
 
-
+                        <div class="settings-section">
+                            <h2><i class="fas fa-paint-brush"></i> Appearance</h2>
+                            <div class="settings-card">
+                                <form id="profile-customization-form">
+                                    <div class="form-group">
+                                        <label for="profile-bg-url" class="form-label">Profile Background Image
+                                            URL</label>
+                                        <input type="text" id="profile-bg-url" class="form-input"
+                                            placeholder="Enter background image URL">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-bg-color" class="form-label">Profile Background
+                                            Color</label>
+                                        <input type="color" id="profile-bg-color" class="form-input" value="#1e1e2e">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-pic-shape" class="form-label">Profile Picture Shape</label>
+                                        <select id="profile-pic-shape" class="form-input">
+                                            <option value="circle">Circle</option>
+                                            <option value="rounded">Rounded Square</option>
+                                            <option value="square">Square</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Appearance Settings</button>
+                                </form>
                             </div>
-                            <button type="submit" class="btn btn-primary">Save Customization</button>
-                        </form>
+                        </div>
+
+                        <div class="settings-section">
+                            <h2><i class="fas fa-shield-alt"></i> Account</h2>
+                            <div class="settings-card">
+                                <div class="account-actions">
+                                    <button id="settings-logout-btn" class="btn btn-danger">
+                                        <i class="fas fa-sign-out-alt"></i> Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <hr style="margin:2rem 0 1rem 0; border: none; border-top: 1px solid var(--bg-tertiary);" />
-                    <button id="settings-logout-btn" class="btn btn-danger" style="width:100%;margin-top:1rem;">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </button>
                 </div>
 
                 <div id="user-profile-page" class="page hidden">
